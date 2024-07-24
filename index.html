@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<html>
 <body>
-    <h1>Chapter1: HTML Canvas and Javascript</h1>
-    <style> #myCanvas {
-        background: #000000;
-    }
-    body
-        {
-            margin: 0;
-    }
-    </style>
-    <canvas id="myCanvas" width="200" height="100" style="border:1px solid black;">
-        Sorry, your browser is not support Canvas.
-    </canvas>
-    <script src="bubble.js"></script>
+
+<h2>Using the XMLHttpRequest Object</h2>
+<div id="demo">
+<button type="button" onclick="loadXMLDoc()">Change Content</button>
+</div>
+<script>
+function loadXMLDoc() {
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+console.log("readyState: "+this.readyState+" status: "+this.status);
+if (this.readyState == 4 && this.status == 200) {
+document.getElementById("demo").innerHTML = this.responseText;
+}
+};
+xhttp.open("GET", "xmlhttp_info.txt", true);
+xhttp.send();
+}
+
+</script>
 </body>
 </html>
